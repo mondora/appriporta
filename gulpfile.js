@@ -107,6 +107,30 @@ var buildVendorScripts = function (dest, minify) {
 // Build for mobile //
 //////////////////////
 
+gulp.task("buildMobileDev", function () {
+
+	mkdirp.sync("builds/app/www/dist/js");
+	mkdirp.sync("builds/app/www/dist/css");
+
+	// index.html
+	var html = fs.readFileSync("app/main.html", "utf8");
+	var mobileHtml = pp.preprocess(html, {TARGET: "mobile.dev"});
+	fs.writeFileSync("builds/app/www/index.html", mobileHtml);
+
+	return Q.all([
+		// Scripts
+		buildAppScripts("builds/app/www/dist/js", true),
+		buildVendorScripts("builds/app/www/dist/js", true),
+		// Styles
+		buildAppStyles("builds/app/www/dist/css", true),
+		// Favicon
+		//buildAppFavicon("builds/app/www"),
+		// Version
+		//buildAppVersion("builds/app/www")
+	]);
+
+});
+
 gulp.task("buildMobile", function () {
 
 	mkdirp.sync("builds/app/www/dist/js");
