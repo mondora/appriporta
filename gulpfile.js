@@ -57,16 +57,16 @@ var buildAppScripts = function (dest, minify) {
 	return deferred.promise;
 };
 
-/*
-var buildAppFavicon = function (dest) {
+var buildAppImages = function (dest) {
 	var deferred = Q.defer();
-	var step = gulp.src("app/favicon.ico").pipe(gulp.dest(dest));
+	var step = gulp.src("app/img/*").pipe(gulp.dest(dest));
 	step.on("end", function () {
 		deferred.resolve();
 	});
 	return deferred.promise;
 };
 
+/*
 var buildAppVersion = function (dest) {
 	var deferred = Q.defer();
 	var step = gulp.src("app/VERSION").pipe(gulp.dest(dest));
@@ -111,6 +111,7 @@ gulp.task("buildMobileDev", function () {
 
 	mkdirp.sync("builds/app/www/dist/js");
 	mkdirp.sync("builds/app/www/dist/css");
+	mkdirp.sync("builds/app/www/dist/img");
 
 	// index.html
 	var html = fs.readFileSync("app/main.html", "utf8");
@@ -123,8 +124,8 @@ gulp.task("buildMobileDev", function () {
 		buildVendorScripts("builds/app/www/dist/js", true),
 		// Styles
 		buildAppStyles("builds/app/www/dist/css", true),
-		// Favicon
-		//buildAppFavicon("builds/app/www"),
+		// Images
+		buildAppImages("builds/app/www/dist/img")
 		// Version
 		//buildAppVersion("builds/app/www")
 	]);
@@ -135,6 +136,7 @@ gulp.task("buildMobile", function () {
 
 	mkdirp.sync("builds/app/www/dist/js");
 	mkdirp.sync("builds/app/www/dist/css");
+	mkdirp.sync("builds/app/www/dist/img");
 
 	// index.html
 	var html = fs.readFileSync("app/main.html", "utf8");
@@ -147,8 +149,8 @@ gulp.task("buildMobile", function () {
 		buildVendorScripts("builds/app/www/dist/js", true),
 		// Styles
 		buildAppStyles("builds/app/www/dist/css", true),
-		// Favicon
-		//buildAppFavicon("builds/app/www"),
+		// Images
+		buildAppImages("builds/app/www/dist/img")
 		// Version
 		//buildAppVersion("builds/app/www")
 	]);
@@ -184,12 +186,12 @@ var buildDevHtml = function () {
 	return Q();
 };
 
-/*
-var buildDevFavicon = function () {
-	console.log("Building favicon... ");
-	return buildAppFavicon("builds/dev");
+var buildDevImages = function () {
+	console.log("Building images... ");
+	return buildAppImages("builds/dev/dist/img");
 };
 
+/*
 var buildDevVersion = function () {
 	console.log("Building version... ");
 	return buildAppVersion("builds/dev");
@@ -200,7 +202,7 @@ gulp.task("dev", function () {
 	buildDevJs();
 	buildDevCss();
 	buildDevHtml();
-	//buildDevFavicon();
+	buildDevImages();
 	//buildDevVersion();
 
 	// Set up static file server

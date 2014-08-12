@@ -40,7 +40,7 @@ body{
 	font-size: 25px;
 	border-radius: 20px;
 	box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.3);
-	-webkit-appearance:none;
+	-webkit-appearance: none;
 	border: none;
 	&:active {
 		box-shadow: inset 0 0 5px 3px rgba(0,0,0,0.75);
@@ -50,11 +50,12 @@ body{
 	}
 }
 #open{
+	display: none;
 	height: 170px;
 	width: 170px;
 	border-radius: 50%;
 	margin: 3px;
-	-webkit-appearance:none;
+	-webkit-appearance: none;
 	background:url('/dist/img/key.png');
 	background-size: cover;
 	border: none;
