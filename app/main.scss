@@ -6,7 +6,7 @@ html, body{
 	font-family: 'sans';
 }
 body{
-	background: url('/dist/img/background.jpg');
+	background: url('../img/background.jpg');
 	background-size: cover;
 	div {
 		width: 100%;
@@ -19,7 +19,7 @@ body{
 	padding: 0px;
 	background-color: #ffcc00;
 	border-bottom: 3px solid rgba(0,0,0,0.5);
-	img{
+	img {
 		margin-top: 5px;
 		height: 70px;
 		width: auto;
@@ -33,7 +33,8 @@ body{
 	display: none;
 	background-color: red;
 }
-#login, #logout {
+#login,
+#logout {
 	height: 60px;
 	width: 140px;
 	margin: 20px auto;
@@ -56,7 +57,7 @@ body{
 	border-radius: 50%;
 	margin: 3px;
 	-webkit-appearance: none;
-	background:url('/dist/img/key.png');
+	background: url('../img/key.png');
 	background-size: cover;
 	border: none;
 	font-size: 40px;
