@@ -1,0 +1,19 @@
+{
+  "name": "appriporta",
+  "version": "0.1.0",
+  "authors": [
+    "Paolo Scanferla <paolo.scanferla@mondora.com>"
+  ],
+  "description": "Opens the door",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "asteroid": "~0.3.7"
+  }
+}

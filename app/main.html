@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>appriporta</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no" />
+		<meta charset="utf-8" />
+
+		<!-- @if TARGET=='dev' -->
+
+			<!-- Main App CSS -->
+			<link href="dist/css/app.css" type="text/css" rel="stylesheet" />
+
+			<!-- JS from Bower Components -->
+			<script src="dist/js/vendor.js"></script>
+			<!-- Browser reload script -->
+			<script>
+				(function () {
+					var ws = new WebSocket("ws://localhost:8000");
+					ws.onmessage = function (e) {
+						location.reload(true);
+					};
+				})();
+			</script>
+			<!-- Main App JS -->
+			<script>
+				window.APP_VERSION = "v0.1.0b";
+			</script>
+			<script src="dist/js/app.js"></script>
+
+		<!-- @endif -->
+
+		<!-- @if TARGET=='mobile.prod' -->
+
+			<!-- Main App CSS -->
+			<link href="dist/css/app.min.css" type="text/css" rel="stylesheet" />
+
+			<!-- JS from Bower Components -->
+			<script src="dist/js/vendor.min.js"></script>
+			<script src="cordova.js"></script>
+			<!-- Main App JS -->
+			<script>
+				window.APP_VERSION = "v0.1.0";
+			</script>
+			<script src="dist/js/app.min.js"></script>
+
+		<!-- @endif -->
+
+	</head>
+
+	<body>
+		<button id="login">Sign in</button>
+		<button id="logout">Sign out</button>
+		<button id="open">Open</button>
+	</body>
+
+</html>
