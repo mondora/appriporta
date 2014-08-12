@@ -1,8 +1,69 @@
-#login {
+html, body{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'sans';
 }
-#open {
-	display: none;
+body{
+	background: url('/dist/img/background.jpg');
+	background-size: cover;
+	div {
+		width: 100%;
+		text-align: center;
+	}
+}
+.top {
+	height: 80px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #ffcc00;
+	border-bottom: 3px solid rgba(0,0,0,0.5);
+	img{
+		margin-top: 5px;
+		height: 70px;
+		width: auto;
+	}
+}
+#login {
+	display: block;
+	background-color: green;
 }
 #logout {
 	display: none;
+	background-color: red;
+}
+#login, #logout {
+	height: 60px;
+	width: 140px;
+	margin: 20px auto;
+	font-size: 25px;
+	border-radius: 20px;
+	box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.3);
+	-webkit-appearance:none;
+	border: none;
+	&:active {
+		box-shadow: inset 0 0 5px 3px rgba(0,0,0,0.75);
+	}
+	&:focus {
+		outline: 0px;
+	}
+}
+#open{
+	height: 170px;
+	width: 170px;
+	border-radius: 50%;
+	margin: 3px;
+	-webkit-appearance:none;
+	background:url('/dist/img/key.png');
+	background-size: cover;
+	border: none;
+	font-size: 40px;
+	box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+	&:active {
+		box-shadow: inset 0 0 15px 8px rgba(0,0,0,0.5);
+	}
+	&:focus {
+		outline: 0px;
+	}
 }
